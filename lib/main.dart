@@ -1,4 +1,5 @@
 import 'package:awan_toko/Info_and_promo.dart';
+import 'package:awan_toko/cart.dart';
 import 'package:awan_toko/line_of_credit.dart';
 import 'package:awan_toko/notification.dart';
 import 'package:awan_toko/schedule.dart';
@@ -15,23 +16,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MyStatefulWidget(),
-      // home: Scaffold(
-      //   appBar: AppBar(
-      //     title: Row(
-      //       children: <Widget>[
-      //         Image.asset(
-      //           'assets/ic_awan_toko_logo.png',
-      //           width: 110,
-      //           height: 20,
-      //         ),
-      //       ],
-      //     ),
-      //     backgroundColor: Colors.white,
-      //   ),
-      //   body: Column(
-      //     children: <Widget>[LineOfCredit(), Schedule()],
-      //   ),
-      // ),
     );
   }
 }
@@ -65,6 +49,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if(index == 1){
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Cart()),
+        );
+      }
     });
   }
 
